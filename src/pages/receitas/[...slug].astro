@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const recipeEntries = await getCollection('recipes');
+  return recipeEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.data.title} - Receitas Seara`}>
+	<article class="recipe-detail container">
+		<header class="recipe-header">
+			<div class="header-text">
+				<span class="tag-purple">{entry.data.category}</span>
+				<h1>{entry.data.title}</h1>
+				<div class="meta-info">
+					<span>⏱️ {entry.data.prepTime}</span>
+					<span>🍽️ {entry.data.servings} porções</span>
+				</div>
+			</div>
+			<div class="header-image">
+				<img src={entry.data.image} alt={entry.data.title} />
+			</div>
+		</header>
+
+		<div class="recipe-content">
+			<Content />
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.recipe-detail {
+		padding-top: 4rem;
+	}
+	.recipe-header {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 3rem;
+		align-items: center;
+		margin-bottom: 4rem;
+	}
+	h1 {
+		font-size: 3rem;
+		color: var(--seara-orange);
+		margin: 1rem 0;
+		text-transform: uppercase;
+	}
+	.meta-info {
+		display: flex;
+		gap: 2rem;
+		font-size: 1.1rem;
+		color: var(--text-muted);
+	}
+	.header-image img {
+		width: 100%;
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow);
+	}
+	.recipe-content {
+		max-width: 800px;
+		margin: 0 auto;
+		background: white;
+		padding: 3rem;
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow);
+	}
+	/* Estilos para o conteúdo Markdown */
+	.recipe-content :global(h2) {
+		color: var(--seara-orange);
+		margin-top: 2rem;
+		margin-bottom: 1rem;
+		border-bottom: 2px solid #eee;
+		padding-bottom: 0.5rem;
+	}
+	.recipe-content :global(ul) {
+		padding-left: 1.5rem;
+		margin-bottom: 2rem;
+	}
+	.recipe-content :global(li) {
+		margin-bottom: 0.5rem;
+	}
+	.recipe-content :global(ol) {
+		padding-left: 1.5rem;
+	}
+</style>

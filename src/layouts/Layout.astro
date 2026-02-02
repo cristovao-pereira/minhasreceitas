@@ -1,0 +1,99 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import '../styles/global.css';
+import SearchBar from '../components/SearchBar.astro';
+---
+
+<!doctype html>
+<html lang="pt-BR">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Portal de Receitas Seara Clone" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<header class="main-header">
+			<div class="container header-content">
+				<div class="logo">
+					<span class="brand">Minha Receita</span>
+					<span class="seara-logo">Seara</span>
+				</div>
+				<SearchBar />
+				<nav>
+					<ul>
+						<li><a href="/">Receitas</a></li>
+						<li><a href="#">Categorias</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer class="main-footer">
+			<div class="container">
+				<p>&copy; 2026 Seara Clone - Criado com Antigravity</p>
+			</div>
+		</footer>
+	</body>
+</html>
+
+<style>
+	.main-header {
+		background: linear-gradient(to right, #F04E23, #D93616);
+		color: white;
+		padding: 1rem 0;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	}
+	.header-content {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 2rem;
+		flex-wrap: wrap;
+	}
+	.logo {
+		display: flex;
+		flex-direction: column;
+		line-height: 1;
+	}
+	.brand {
+		font-weight: 700;
+		font-size: 1.5rem;
+	}
+	.seara-logo {
+		font-size: 0.8rem;
+		text-transform: uppercase;
+		letter-spacing: 2px;
+		color: var(--seara-yellow);
+	}
+	nav ul {
+		display: flex;
+		list-style: none;
+		gap: 2rem;
+	}
+	nav a {
+		font-weight: 500;
+		transition: opacity 0.2s;
+	}
+	nav a:hover {
+		opacity: 0.8;
+	}
+	.main-footer {
+		background: #111827;
+		color: white;
+		padding: 2rem 0;
+		margin-top: 4rem;
+		text-align: center;
+	}
+</style>

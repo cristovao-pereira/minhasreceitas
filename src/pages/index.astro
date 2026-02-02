@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import RecipeCard from '../components/RecipeCard.astro';
+import TagFilter from '../components/TagFilter.astro';
+import { getCollection } from 'astro:content';
+
+const allRecipes = await getCollection('recipes');
+const allTags = [...new Set(allRecipes.flatMap(recipe => recipe.data.tags || []))].sort();
+---
+
+<Layout title="Receitas Seara - Sabores que Inspiram">
+	<section class="hero">
+		<div class="container hero-content">
+			<span class="tag-purple">Todas as Receitas</span>
+			<h1>Sabores que inspiram o seu dia</h1>
+			<p>Descubra as melhores receitas com a qualidade Seara.</p>
+		</div>
+	</section>
+
+	<div class="container">
+		<TagFilter tags={allTags} />
+	</div>
+
+	<section class="recipes-grid container" id="recipes-container">
+		{allRecipes.map(recipe => (
+			<div class="recipe-wrapper" data-title={recipe.data.title.toLowerCase()}>
+				<RecipeCard recipe={recipe} />
+			</div>
+		))}
+		<div id="no-results" class="no-results" style="display: none;">
+			<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+				<circle cx="11" cy="11" r="8"></circle>
+				<path d="m21 21-4.35-4.35"></path>
+			</svg>
+			<h3>Nenhuma receita encontrada</h3>
+			<p>Tente buscar com outros termos</p>
+		</div>
+	</section>
+
+	<script>
+		// Implementação da busca case-insensitive
+		const searchInput = document.getElementById('recipe-search') as HTMLInputElement;
+		const recipesContainer = document.getElementById('recipes-container');
+		const noResults = document.getElementById('no-results');
+
+		if (searchInput && recipesContainer && noResults) {
+			searchInput.addEventListener('input', (e) => {
+				const searchTerm = (e.target as HTMLInputElement).value.toLowerCase().trim();
+				const recipeWrappers = recipesContainer.querySelectorAll('.recipe-wrapper');
+				let visibleCount = 0;
+
+				recipeWrappers.forEach((wrapper) => {
+					const title = wrapper.getAttribute('data-title') || '';
+					
+					if (title.includes(searchTerm)) {
+						(wrapper as HTMLElement).style.display = '';
+						visibleCount++;
+					} else {
+						(wrapper as HTMLElement).style.display = 'none';
+					}
+				});
+
+				// Mostrar mensagem se nenhuma receita foi encontrada
+				if (visibleCount === 0 && searchTerm !== '') {
+					noResults.style.display = 'flex';
+				} else {
+					noResults.style.display = 'none';
+				}
+			});
+		}
+	</script>
+
+</Layout>
+
+<style>
+	.hero {
+		background: url('https://www.seara.com.br/wp-content/themes/seara-minha-receita/assets/img/bg-home-receitas.jpg');
+		background-size: cover;
+		background-position: center;
+		padding: 6rem 0;
+		color: white;
+		margin-bottom: 3rem;
+		position: relative;
+	}
+	.hero::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(0,0,0,0.4);
+	}
+	.hero-content {
+		position: relative;
+		z-index: 1;
+	}
+	h1 {
+		font-size: 3.5rem;
+		font-weight: 700;
+		margin: 1rem 0;
+		text-transform: uppercase;
+	}
+	p {
+		font-size: 1.25rem;
+		max-width: 600px;
+	}
+	.recipes-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+		gap: 2.5rem;
+		padding-bottom: 5rem;
+		position: relative;
+	}
+	
+	.recipe-wrapper {
+		transition: opacity 0.3s ease;
+	}
+	
+	.no-results {
+		grid-column: 1 / -1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding: 4rem 2rem;
+		text-align: center;
+		color: var(--gray-900);
+	}
+	
+	.no-results svg {
+		color: var(--seara-orange);
+		margin-bottom: 1.5rem;
+		opacity: 0.5;
+	}
+	
+	.no-results h3 {
+		font-size: 1.5rem;
+		font-weight: 700;
+		margin-bottom: 0.5rem;
+	}
+	
+	.no-results p {
+		color: #6B7280;
+		font-size: 1rem;
+	}
+</style>

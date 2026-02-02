@@ -1,0 +1,17 @@
+[31m[GenerateContentTypesError][39m `astro sync` command failed to generate content collection types: failed to resolve "extends":"astro/tsconfigs/strict.json" in C:\CursoJS\antigravity\tsconfig.json
+  [1mHint:[22m
+[33m    This error is often caused by a syntax error inside your content, or your content configuration file. Check your src/content/config.ts file for typos.[39m
+  [1mError reference:[22m
+    [36m[4mhttps://docs.astro.build/en/reference/errors/generate-content-types-error/[24m[39m
+  [1mLocation:[22m
+    [4mC:\CursoJS\antigravity\node_modules\astro\dist\core\sync\index.js:238:11[24m
+  [1mStack trace:[22m
+[2m    at syncContentCollections (file:///C:/CursoJS/antigravity/node_modules/astro/dist/core/sync/index.js:238:11)
+    at async sync (file:///C:/CursoJS/antigravity/node_modules/astro/dist/core/sync/index.js:49:10)
+    at async runCommand (file:///C:/CursoJS/antigravity/node_modules/astro/dist/cli/index.js:167:7)[22m
+  [1mCaused by:[22m
+[2m  failed to resolve "extends":"astro/tsconfigs/strict.json" in C:\CursoJS\antigravity\tsconfig.json
+    at resolveExtends (file:///C:/CursoJS/antigravity/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:8739:8)
+    at parse$e (file:///C:/CursoJS/antigravity/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:8531:23)
+    at async transformWithEsbuild (file:///C:/CursoJS/antigravity/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:9088:60)
+    at async EnvironmentPluginContainer.transform (file:///C:/CursoJS/antigravity/node_modules/vite/dist/node/chunks/dep-D4NMHUTW.js:42323:18)[22m

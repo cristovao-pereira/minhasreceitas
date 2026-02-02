@@ -1,0 +1,70 @@
+---
+// Componente de busca para filtrar receitas por título
+---
+
+<div class="search-bar">
+	<svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+		<circle cx="11" cy="11" r="8"></circle>
+		<path d="m21 21-4.35-4.35"></path>
+	</svg>
+	<input 
+		type="text" 
+		id="recipe-search" 
+		placeholder="Buscar receitas..." 
+		aria-label="Buscar receitas"
+	/>
+</div>
+
+<style>
+	.search-bar {
+		position: relative;
+		display: flex;
+		align-items: center;
+		max-width: 400px;
+		width: 100%;
+	}
+
+	.search-icon {
+		position: absolute;
+		left: 1rem;
+		color: rgba(255, 255, 255, 0.8);
+		pointer-events: none;
+		z-index: 1;
+	}
+
+	#recipe-search {
+		width: 100%;
+		padding: 0.75rem 1rem 0.75rem 3rem;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		border-radius: 50px;
+		background: rgba(255, 255, 255, 0.15);
+		color: white;
+		font-size: 1rem;
+		font-family: 'Outfit', sans-serif;
+		transition: all 0.3s ease;
+		backdrop-filter: blur(10px);
+	}
+
+	#recipe-search::placeholder {
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	#recipe-search:focus {
+		outline: none;
+		background: rgba(255, 255, 255, 0.25);
+		border-color: rgba(255, 255, 255, 0.5);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	#recipe-search:hover {
+		background: rgba(255, 255, 255, 0.2);
+		border-color: rgba(255, 255, 255, 0.4);
+	}
+
+	@media (max-width: 768px) {
+		.search-bar {
+			max-width: 100%;
+			margin: 1rem 0;
+		}
+	}
+</style>
