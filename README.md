@@ -1,115 +1,115 @@
-# 🍳 Minhas Receitas
+# 🍳 My Recipes
 
-Um site moderno de receitas culinárias desenvolvido com Astro, TypeScript e design responsivo.
+A modern recipe website built with Astro, TypeScript, and responsive design.
 
 ![Astro](https://img.shields.io/badge/Astro-5.17.1-FF5D01?style=flat&logo=astro&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.9.3-3178C6?style=flat&logo=typescript&logoColor=white)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-## ✨ Funcionalidades
+## ✨ Features
 
-- 🔍 **Busca Inteligente**: Pesquise receitas por título de forma rápida e intuitiva
-- 🏷️ **Filtros por Tags**: Organize e filtre receitas por categorias (doces, salgados, massas, etc.)
-- 📱 **Design Responsivo**: Interface adaptável para desktop, tablet e mobile
-- 🎨 **Interface Moderna**: Design clean e profissional com excelente UX
-- ⚡ **Performance**: Carregamento rápido com Astro e otimização de assets
-- 📝 **Sistema de Conteúdo**: Gerenciamento de receitas com Content Collections
+- 🔍 **Smart Search**: Search recipes by title quickly and intuitively
+- 🏷️ **Tag Filters**: Organize and filter recipes by categories (sweets, savory, pasta, etc.)
+- 📱 **Responsive Design**: Adaptive interface for desktop, tablet, and mobile
+- 🎨 **Modern Interface**: Clean and professional design with excellent UX
+- ⚡ **Performance**: Fast loading with Astro and asset optimization
+- 📝 **Content System**: Recipe management with Content Collections
 
-## 🚀 Estrutura do Projeto
+## 🚀 Project Structure
 
 ```text
 /
-├── public/              # Assets estáticos (imagens, ícones)
+├── public/              # Static assets (images, icons)
 ├── src/
-│   ├── components/      # Componentes reutilizáveis
-│   ├── content/         # Receitas em Markdown
-│   │   └── recipes/     # Coleção de receitas
-│   ├── layouts/         # Layouts das páginas
-│   ├── pages/           # Páginas do site
-│   └── styles/          # Estilos globais
+│   ├── components/      # Reusable components
+│   ├── content/         # Recipes in Markdown
+│   │   └── recipes/     # Recipe collection
+│   ├── layouts/         # Page layouts
+│   ├── pages/           # Site pages
+│   └── styles/          # Global styles
 └── package.json
 ```
 
-## 🛠️ Tecnologias
+## 🛠️ Technologies
 
-- **[Astro](https://astro.build)** - Framework web moderno e performático
-- **TypeScript** - Tipagem estática para JavaScript
-- **Content Collections** - Sistema de gerenciamento de conteúdo do Astro
-- **CSS Moderno** - Estilização com variáveis CSS e design responsivo
+- **[Astro](https://astro.build)** - Modern and performant web framework
+- **TypeScript** - Static typing for JavaScript
+- **Content Collections** - Astro's content management system
+- **Modern CSS** - Styling with CSS variables and responsive design
 
-## 📦 Instalação
+## 📦 Installation
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/cristovao-pereira/minhasreceitas.git
 
-# Entre no diretório
+# Enter the directory
 cd minhasreceitas
 
-# Instale as dependências
+# Install dependencies
 npm install
 ```
 
-## 🧞 Comandos
+## 🧞 Commands
 
-Todos os comandos devem ser executados na raiz do projeto:
+All commands should be run from the project root:
 
-| Comando              | Ação                                              |
-| :------------------- | :------------------------------------------------ |
-| `npm install`        | Instala as dependências                           |
-| `npm run dev`        | Inicia o servidor de desenvolvimento em `localhost:4321` |
-| `npm run build`      | Gera o build de produção em `./dist/`            |
-| `npm run preview`    | Visualiza o build localmente antes do deploy     |
-| `npm run astro ...`  | Executa comandos CLI do Astro                     |
+| Command              | Action                                              |
+| :------------------- | :-------------------------------------------------- |
+| `npm install`        | Installs dependencies                               |
+| `npm run dev`        | Starts local dev server at `localhost:4321`         |
+| `npm run build`      | Build your production site to `./dist/`             |
+| `npm run preview`    | Preview your build locally, before deploying        |
+| `npm run astro ...`  | Run CLI commands like `astro add`, `astro check`    |
 
 ## 🌐 Deploy
 
-O projeto pode ser facilmente deployado em plataformas como:
+The project can be easily deployed on platforms like:
 
 - [Vercel](https://vercel.com)
 - [Netlify](https://netlify.com)
 - [GitHub Pages](https://pages.github.com)
 - [Cloudflare Pages](https://pages.cloudflare.com)
 
-## 📝 Como Adicionar Receitas
+## 📝 How to Add Recipes
 
-1. Crie um novo arquivo `.md` em `src/content/recipes/`
-2. Adicione o frontmatter com os dados da receita:
+1. Create a new `.md` file in `src/content/recipes/`
+2. Add the frontmatter with recipe data:
 
 ```markdown
 ---
-title: "Nome da Receita"
-description: "Breve descrição"
-image: "/images/receita.jpg"
-tags: ["doce", "sobremesa"]
+title: "Recipe Name"
+description: "Brief description"
+image: "/images/recipe.jpg"
+tags: ["sweet", "dessert"]
 prepTime: "30 min"
 servings: 4
 ---
 
-## Ingredientes
-- Ingrediente 1
-- Ingrediente 2
+## Ingredients
+- Ingredient 1
+- Ingredient 2
 
-## Modo de Preparo
-1. Passo 1
-2. Passo 2
+## Instructions
+1. Step 1
+2. Step 2
 ```
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são bem-vindas! Sinta-se à vontade para:
+Contributions are welcome! Feel free to:
 
-1. Fazer um fork do projeto
-2. Criar uma branch para sua feature (`git checkout -b feature/NovaReceita`)
-3. Commit suas mudanças (`git commit -m 'Adiciona nova receita'`)
-4. Push para a branch (`git push origin feature/NovaReceita`)
-5. Abrir um Pull Request
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/NewRecipe`)
+3. Commit your changes (`git commit -m 'Add new recipe'`)
+4. Push to the branch (`git push origin feature/NewRecipe`)
+5. Open a Pull Request
 
-## 📄 Licença
+## 📄 License
 
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+This project is under the MIT license. See the [LICENSE](LICENSE) file for more details.
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
 **Cristovão Pereira**
 - GitHub: [@cristovao-pereira](https://github.com/cristovao-pereira)
@@ -117,4 +117,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-⭐ Se este projeto foi útil para você, considere dar uma estrela!
+⭐ If this project was helpful to you, consider giving it a star!
