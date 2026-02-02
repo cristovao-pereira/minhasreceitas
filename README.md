@@ -117,4 +117,4 @@ This project is under the MIT license. See the [LICENSE](LICENSE) file for more 
 
 ---
 
-⭐ If this project was helpful to you, consider giving it a star! 
+⭐ If this project was helpful to you, consider giving it a star!
