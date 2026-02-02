@@ -1,4 +1,4 @@
-# 🍳 My Recipes
+# 🍳 Minhas Receitas
 
 A modern recipe website built with Astro, TypeScript, and responsive design.
 
